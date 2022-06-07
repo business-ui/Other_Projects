@@ -38,7 +38,7 @@ ProcContinue:
     Dim myTopLevelReport As Outlook.ExchangeUser
 
     'this method returns an exchange user from their "outlook name"
-    Set my myTopLevelReport = olGAL.AddressEntries.Item(parent_display_name).GetExchangeUser
+    Set myTopLevelReport = olGAL.AddressEntries.Item(parent_display_name).GetExchangeUser
 
     Dim wb As Workbook, ws As Worksheet
     'strPath = myTopLevelReport.FirstName & " " & myTopLevelReport.LastName & ".xlsx"
@@ -177,7 +177,7 @@ Function Counting()
     Set df = ws.ListObjects("Table1")
 
     'Setting up the Column Header search
-    For each col in df.ListColumns
+    For Each col In df.ListColumns
         colNames = colNames + CStr(col)
     Next col
 
@@ -186,10 +186,10 @@ Function Counting()
         df.ListColumns.Add(5).Name = "Total"
     End If
     If InStr(colNames, "Contractors") = 0 Then
-        df.ListColumns.Add(6).Name = "Total"
+        df.ListColumns.Add(6).Name = "Contractors"
     End If
     If InStr(colNames, "FTE") = 0 Then
-        df.ListColumns.Add(7).Name = "Total"
+        df.ListColumns.Add(7).Name = "FTE"
     End If
 
     For Each m In df.ListColumns("managerName").DataBodyRange
@@ -251,7 +251,7 @@ Function AltCountChildren(df As Object) As Collection
                 End If
 
                 If ((InStr(df.ListColumns("Name").Range(potentialChild.Row).Value, "(CTR)") > 0) _
-                    Or (InStr(df.ListColumns("Name").Range(potentialChild.Row).Value, "- contr") >0)) _
+                    Or (InStr(df.ListColumns("Name").Range(potentialChild.Row).Value, "- contr") > 0)) _
                     And (df.ListColumns("Title").Range(potentialChild.Row).Value <> "BOT") _
                     Then
                     df.ListColumns("Contractors").Range(currentManager).Value = df.ListColumns("Contractors").Range(currentManager).Value + cntChildContractor + 1
@@ -259,7 +259,7 @@ Function AltCountChildren(df As Object) As Collection
                     df.ListColumns("Total").Range(currentManager).Value = df.ListColumns("Total").Range(currentManager).Value + cntChildTotal + 1
                 ElseIf df.ListColumns("Title").Range(potentialChild.Row).Value = "BOT" Then
                 Else
-                    df.ListColumns("Contractors").Range(currentManager).Value = df.ListColumns("Contractors").Range(currentManager).Value + cntChildContractor
+                    df.ListColumns("Contractors").Range(currentManager).Value = df.ListColumns("Contractors").Range(currentManager).Value + df.ListColumns("Contractors").Range(potentialChild.Row)
                     df.ListColumns("FTE").Range(currentManager).Value = df.ListColumns("FTE").Range(currentManager).Value + cntChildFTE + 1
                     df.ListColumns("Total").Range(currentManager).Value = df.ListColumns("Total").Range(currentManager).Value + cntChildTotal + 1
                 End If
