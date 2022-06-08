@@ -13,7 +13,7 @@ On Error GoTo ProcError
     Set allReports = New Collection
 
     Dim curLevelReports As Collection
-    Set curLevelReports As New Collection
+    Set curLevelReports = New Collection
 
     Dim nextLevelReports As Collection
     Set nextLevelReports = New Collection
@@ -54,13 +54,13 @@ ProcContinue:
         If tbl.Name = "Table1" Then ws.ListObjects("Table1").Delete
     Next tbl
 
-    ws.Cells(1,1).Value = "Unique_ID"
-    ws.Cells(1,2).Value = "Name"
-    ws.Cells(1,3).Value = "managerName"
-    ws.Cells(1,4).Value = "Reports_To"
-    ws.Cells(1,5).Value = "Title"
-    ws.Cells(1,6).Value = "First Name"
-    ws.Cells(1,7).Value = "Last Name"
+    ws.Cells(1, 1).Value = "Unique_ID"
+    ws.Cells(1, 2).Value = "Name"
+    ws.Cells(1, 3).Value = "managerName"
+    ws.Cells(1, 4).Value = "Reports_To"
+    ws.Cells(1, 5).Value = "Title"
+    ws.Cells(1, 6).Value = "First Name"
+    ws.Cells(1, 7).Value = "Last Name"
     'add to both the next level of reports as well as all reports
     'allReports.Add myTopLevelReport
     curLevelReports.Add myTopLevelReport
