@@ -7,7 +7,7 @@ On Error GoTo ProcError
     Dim olNS As Object
     Dim olGAL As Object
     Set ol = Outlook.Session.Application
-    Set olNS = olNS.GetNamespace("MAPI")
+    Set olNS = ol.GetNamespace("MAPI")
     Set olGAL = olNS.AddressLists("Global Address List")
     Dim allReports As Collection
     Set allReports = New Collection
@@ -140,9 +140,9 @@ ProcContinue:
     Exit Sub
 
 ProcError:
-    MsgBox "Invalid Outlook Nam: Please Try Again."
+    MsgBox "Invalid Outlook Name: Please Try Again."
     Exit Sub
-ProcCancel
+ProcCancel:
     MsgBox "Procedure Cancelled"
     Exit Sub
 End Sub
