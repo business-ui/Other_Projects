@@ -250,8 +250,7 @@ Function AltCountChildren(df As Object) As Collection
                     cntChildTotal = df.ListColumns("Total").Range(potentialChild.Row).Value
                 End If
 
-                If ((InStr(df.ListColumns("Name").Range(potentialChild.Row).Value, "(CTR)") > 0) _
-                    Or (InStr(df.ListColumns("Name").Range(potentialChild.Row).Value, "- contr") > 0)) _
+                If (df.ListColumns("Title").Range(potentialChild.Row).Value <> "Contractor") _
                     And (df.ListColumns("Title").Range(potentialChild.Row).Value <> "BOT") _
                     Then
                     df.ListColumns("Contractors").Range(currentManager).Value = df.ListColumns("Contractors").Range(currentManager).Value + cntChildContractor + 1
