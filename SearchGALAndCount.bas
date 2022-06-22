@@ -61,6 +61,9 @@ ProcContinue:
     ws.Cells(1, 5).Value = "Title"
     ws.Cells(1, 6).Value = "First Name"
     ws.Cells(1, 7).Value = "Last Name"
+    ws.Cells(1, 8).Value = "Office Location"
+    ws.Cells(1, 9).Value = "Department"
+    ws.Cells(1, 10).Value = "Email"
     'add to both the next level of reports as well as all reports
     'allReports.Add myTopLevelReport
     curLevelReports.Add myTopLevelReport
@@ -98,6 +101,9 @@ ProcContinue:
             ws.Cells(lastRow + 1, 5).Value = curLevelReports.Item(i).JobTitle
             ws.Cells(lastRow + 1, 6).Value = curLevelReports.Item(i).FirstName
             ws.Cells(lastRow + 1, 7).Value = curLevelReports.Item(i).LastName
+            ws.Cells(lastRow + 1, 8).Value = curLevelReports.Item(i).OfficeLocation
+            ws.Cells(lastRow + 1, 9).Value = curLevelReports.Item(i).Department
+            ws.Cells(lastRow + 1, 10).Value = curLevelReports.Item(i).PrimarySmtpAddress
 
             'add all reports (note .Count returns 0 on an empty collection)
             For j = 1 To tempAddressEntries.count
