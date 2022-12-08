@@ -5,7 +5,7 @@ bleach==3.3.0
 blockchain==1.4.4
 bokeh==2.0.2
 bs4==0.0.1
-certifi==2020.4.5.1
+certifi==2022.12.7
 chardet==3.0.4
 colorama==0.4.3
 decorator==4.4.2
